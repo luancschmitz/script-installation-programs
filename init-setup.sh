@@ -32,8 +32,18 @@ sudo echo "xdebug.remote_port=9001" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
 sudo echo "xdebug.max_nesting_level=400" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
 sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
 
+sudo echo "xdebug.remote_enable=on" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.remote_autostart=1" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.remote_mode=req" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.idekey=phpstorm" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.remote_port=9001" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.max_nesting_level=400" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
+
+
+
 #INSTALACAO OUTROS PROGRAMAS
-sudo apt install -y nginx docker.io wget silversearcher-ag composer
+sudo apt install -y nginx docker.io wget silversearcher-ag composer guake
 
 #INSTALACAO E CONFIGURACAO DO MYSQL
 sudo apt install mysql-server
