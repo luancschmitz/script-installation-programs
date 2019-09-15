@@ -6,6 +6,33 @@ sudo apt install -y php7.2 php7.2-fpm php7.1 php7.1-fpm php7.0 php7.0-fpm php5.6
 sudo apt install -y php7.2-curl php7.2-gd php7.2-json php7.2-mbstring
 sudo apt install -y php7.1-curl php7.1-gd php7.1-json php7.1-mbstring php7.1-mcrypt
 sudo apt install -y php7.0-curl php7.0-gd php7.0-json php7.0-mbstring php7.0-mcrypt
+sudo apt install -y silversearcher-ag
+#CONFIGURAÇÃO DO XDEBG
+sudo apt install -y php-xdebug
+sudo echo "xdebug.remote_enable=on" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.remote_autostart=1" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.remote_mode=req" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.idekey=phpstorm" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.remote_port=9001" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.max_nesting_level=400" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini 
+
+sudo echo "xdebug.remote_enable=on" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.remote_autostart=1" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.remote_mode=req" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.idekey=phpstorm" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.remote_port=9001" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.max_nesting_level=400" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini 
+
+sudo echo "xdebug.remote_enable=on" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.remote_autostart=1" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.remote_mode=req" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.idekey=phpstorm" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.remote_port=9001" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.max_nesting_level=400" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
+sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini 
+
 sudo usermod -aG docker $USER
 echo É NECESSÁRIO REINICIAR A MÁUINA PARA TERMINAR A INSTALAÇÃO DO DOCKER
 sleep 1s
@@ -19,9 +46,7 @@ cd ~/Downloads
 wget -O ~/Downloads/toolbox.tar.gz https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.15.5796.tar.gz
 mkdir ~/Downloads/Toolbox
 tar xvzf toolbox.tar.gz -C ~/Downloads/Toolbox
-echo Para executar o Toolbox e baixar o PhpStorm basta acessar a pasta /Downloads/Toolbox/jetbrains-toolbox-1.15.5796 e rodar o arquivo que está dentro da mesma.
-sleep 5
+#echo Para executar o Toolbox e baixar o PhpStorm basta acessar a pasta /Downloads/Toolbox/jetbrains-toolbox-1.15.5796 e rodar o arquivo que está dentro da mesma.
+#sleep 5
 cd ~/Downloads/Toolbox/jetbrains-toolbox-1.15.5796/
 ./jetbrains-toolbox
-sudo apt install -y silversearcher-ag
-done
