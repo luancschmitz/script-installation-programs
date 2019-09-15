@@ -9,46 +9,49 @@ sudo apt install -y php7.2-curl php7.2-gd php7.2-json php7.2-mbstring
 sudo apt install -y php7.1-curl php7.1-gd php7.1-json php7.1-mbstring php7.1-mcrypt
 sudo apt install -y php7.0-curl php7.0-gd php7.0-json php7.0-mbstring php7.0-mcrypt
 sudo apt install -y php-xdebug
-sudo echo "xdebug.remote_enable=on" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_autostart=1" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_mode=req" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.idekey=phpstorm" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_port=9001" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.max_nesting_level=400" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
 
-sudo echo "xdebug.remote_enable=on" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_autostart=1" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_mode=req" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.idekey=phpstorm" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_port=9001" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.max_nesting_level=400" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
+sudo su << SUDO_COMANDS
+echo "xdebug.remote_enable=on" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_autostart=1" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_mode=req" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
+echo "xdebug.idekey=phpstorm" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_port=9001" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
+echo "xdebug.max_nesting_level=400" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_host=127.0.0.1" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
 
-sudo echo "xdebug.remote_enable=on" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_autostart=1" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_mode=req" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.idekey=phpstorm" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_port=9001" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.max_nesting_level=400" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_enable=on" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_autostart=1" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_mode=req" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
+echo "xdebug.idekey=phpstorm" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_port=9001" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
+echo "xdebug.max_nesting_level=400" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_host=127.0.0.1" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
 
-sudo echo "xdebug.remote_enable=on" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_autostart=1" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_mode=req" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.idekey=phpstorm" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_port=9001" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.max_nesting_level=400" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_enable=on" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_autostart=1" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_mode=req" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
+echo "xdebug.idekey=phpstorm" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_port=9001" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
+echo "xdebug.max_nesting_level=400" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_host=127.0.0.1" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
+
+echo "xdebug.remote_enable=on" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_autostart=1" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_mode=req" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
+echo "xdebug.idekey=phpstorm" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_port=9001" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
+echo "xdebug.max_nesting_level=400" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
+echo "xdebug.remote_host=127.0.0.1" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
+SUDO_COMANDS
 
 #INSTALACAO OUTROS PROGRAMAS
-sudo apt install -y nginx docker.io wget silversearcher-ag composer guake git
+sudo apt install -y nginx docker.io docker-compose wget silversearcher-ag composer guake git curl
 
 #CONFIGURANDO GIT
-read -p "Digite um E-mail para configurar os commits do git ( o mesmo utilizado na sua conta)" git_email
-read -p "Digite o Nome que vai aparecer nos commits" git_name
-git config --global user.email $git_email
-git config --global user.name $git_name
+read -p "Digite um E-mail para configurar os commits do git ( o mesmo utilizado na sua conta): " git_email
+read -p "Digite o Nome que vai aparecer nos commits: " git_name
+git config --global user.email "$git_email"
+git config --global user.name "$git_name"
 
 #INSTALACAO E CONFIGURACAO DO MYSQL
 echo "Instalando o Mysql server e criando um usuário"
@@ -74,7 +77,6 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo apt-get update -y
 sudo apt-get install code -y
-
 
 #CONFIGURAÇÃO DOCKER
 sudo usermod -aG docker $USER
