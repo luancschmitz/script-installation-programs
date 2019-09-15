@@ -41,7 +41,13 @@ sudo echo "xdebug.max_nesting_level=400" >> /etc/php/5.6/fpm/conf.d/20-xdebug.in
 sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
 
 #INSTALACAO OUTROS PROGRAMAS
-sudo apt install -y nginx docker.io wget silversearcher-ag composer guake
+sudo apt install -y nginx docker.io wget silversearcher-ag composer guake git
+
+#CONFIGURANDO GIT
+read -p "Digite um E-mail para configurar os commits do git" git_email
+read -p "Digite o Nome que vai aparecer nos commits" git_name
+git config --global user.email $git_email
+git config --global user.name $git_name
 
 #INSTALACAO E CONFIGURACAO DO MYSQL
 sudo apt install mysql-server -y
@@ -49,8 +55,7 @@ sudo mysql_secure_installation
 sudo systemctl start mysql
 echo CRIANDO USUÁRIO DO MYSQL PARA CONEXÃO
 read -p "Nome do Usuário: " user
-read -p -s "Senha: " pass
-sleep 1
+read -s -p "Senha: " pass
 sudo mysql << MY_QUERY
 CREATE USER '${user}'@'localhost' IDENTIFIED BY '${pass}';
 GRANT ALL PRIVILEGES ON *.* TO '${user}'@'localhost';
@@ -95,6 +100,3 @@ cd ~/Downloads/Toolbox/jetbrains-toolbox-1.15.5796/
 cd ~/Downloads/
 wget -O chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i chrome.deb
-
-
-
