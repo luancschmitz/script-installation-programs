@@ -58,7 +58,7 @@ echo "Instalando o Mysql server e criando um usuário"
 sudo apt install mysql-server -y
 sudo mysql_secure_installation
 sudo systemctl start mysql
-echo CRIANDO USUÁRIO DO MYSQL PARA CONEXÃO
+echo "CRIANDO USUÁRIO DO MYSQL PARA CONEXÃO"
 read -p "Nome do Usuário: " user
 read -s -p "Senha: " pass
 sudo mysql << MY_QUERY
@@ -66,9 +66,9 @@ CREATE USER '${user}'@'localhost' IDENTIFIED BY '${pass}';
 GRANT ALL PRIVILEGES ON *.* TO '${user}'@'localhost';
 FLUSH PRIVILEGES;
 MY_QUERY
-echo Usuário criado. Informações de Acesso:
-echo User: $user
-echo Senha: $pass
+echo "Usuário criado. Informações de Acesso: "
+echo "User: $user"
+echo "Senha: $pass"
 sleep 3s;
 
 #INSTALACAO VSCODE
@@ -80,14 +80,14 @@ sudo apt-get install code -y
 
 #CONFIGURAÇÃO DOCKER
 sudo usermod -aG docker $USER
-echo É NECESSÁRIO REINICIAR A MÁUINA PARA TERMINAR A INSTALAÇÃO DO DOCKER
+echo "É NECESSÁRIO REINICIAR A MÁUINA PARA TERMINAR A INSTALAÇÃO DO DOCKER"
 sleep 1s
 
 #GERACAO CHAVE SSH
-echo -----Geração da Chave SSH -----
+echo "-----Geração da Chave SSH -----"
 ssh-keygen -t rsa -b 4096 -C "test@example.com" -N "" -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub
-echo COPIE O CONTEÚDO E INSIRA NAS CONFIGURAÇÕES DE CHAVES SSH DO BITBUCKET [PRESSIONE ENTER PARA CONTINUAR]
+echo "COPIE O CONTEÚDO E INSIRA NAS CONFIGURAÇÕES DE CHAVES SSH DO BITBUCKET [PRESSIONE QUALQUER TECLA PARA CONTINUAR]"
 read enter
 
 #INSTALACAO JETBRAINS TOOLBOX
