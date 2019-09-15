@@ -41,7 +41,6 @@ ssh-keygen -t rsa -b 4096 -C "test@example.com" -N "" -f ~/.ssh/id_rsa
 cat ~/.ssh/id_rsa.pub
 echo COPIE O CONTEÚDO E JOGE NAS CONFIGURAÇÕES DE CHAVES SSH DO BITBUCKET [PRESSIONE ENTER PARA CONTINUAR]
 read enter
-mkdir ~/Downloads
 cd ~/Downloads
 wget -O ~/Downloads/toolbox.tar.gz https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.15.5796.tar.gz
 mkdir ~/Downloads/Toolbox
