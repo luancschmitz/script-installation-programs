@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #INSTALACAO E CONFIGURAÇÃO DO PHP E XDEBUG
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update
@@ -13,7 +14,7 @@ sudo echo "xdebug.remote_mode=req" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
 sudo echo "xdebug.idekey=phpstorm" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
 sudo echo "xdebug.remote_port=9001" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
 sudo echo "xdebug.max_nesting_level=400" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini 
+sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/7.0/fpm/conf.d/20-xdebug.ini
 
 sudo echo "xdebug.remote_enable=on" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
 sudo echo "xdebug.remote_autostart=1" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
@@ -21,7 +22,7 @@ sudo echo "xdebug.remote_mode=req" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
 sudo echo "xdebug.idekey=phpstorm" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
 sudo echo "xdebug.remote_port=9001" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
 sudo echo "xdebug.max_nesting_level=400" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini 
+sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/7.1/fpm/conf.d/20-xdebug.ini
 
 sudo echo "xdebug.remote_enable=on" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
 sudo echo "xdebug.remote_autostart=1" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
@@ -29,10 +30,26 @@ sudo echo "xdebug.remote_mode=req" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
 sudo echo "xdebug.idekey=phpstorm" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
 sudo echo "xdebug.remote_port=9001" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
 sudo echo "xdebug.max_nesting_level=400" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
-sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini 
+sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/7.2/fpm/conf.d/20-xdebug.ini
 
 #INSTALACAO OUTROS PROGRAMAS
-sudo apt install -y nginx docker.io mysql-server wget silversearcher-ag
+sudo apt install -y nginx docker.io wget silversearcher-ag composer
+
+#INSTALACAO E CONFIGURACAO DO MYSQL
+sudo apt install mysql-server
+echo CRIANDO USUÁRIO DO MYSQL PARA CONEXÃO
+read -p "Nome do Usuário: " user
+read -p -s "Senha: " pass
+sleep 1
+sudo mysql << MY_QUERY
+CREATE USER '${user}'@'localhost' IDENTIFIED BY '${pass}';
+GRANT ALL PRIVILEGES ON *.* TO '${user}'@'localhost';
+FLUSH PRIVILEGES;
+MY_QUERY
+echo Usuário criado. Informações de Acesso:
+echo User: $user
+echo Senha: $pass
+sleep 3s;
 
 #INSTALACAO VSCODE
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
@@ -63,6 +80,7 @@ tar xvzf toolbox.tar.gz -C ~/Downloads/Toolbox
 #sleep 5
 cd ~/Downloads/Toolbox/jetbrains-toolbox-1.15.5796/
 ./jetbrains-toolbox
+
 #INSTALAÇÃO CHROME
 cd ~/Downloads/
 wget -O chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
