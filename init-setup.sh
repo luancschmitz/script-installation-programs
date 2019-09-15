@@ -1,6 +1,7 @@
 #!/bin/bash
 
 #INSTALACAO E CONFIGURAÇÃO DO PHP E XDEBUG
+echo "Instalação PHP 5.6 7.0 7.1 E 7.2 com configuração do XDEBUG"
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update -y
 sudo apt install -y php7.2 php7.2-fpm php7.1 php7.1-fpm php7.0 php7.0-fpm php5.6 php5.6-fpm
@@ -44,12 +45,13 @@ sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/5.6/fpm/conf.d/20-xdebug.in
 sudo apt install -y nginx docker.io wget silversearcher-ag composer guake git
 
 #CONFIGURANDO GIT
-read -p "Digite um E-mail para configurar os commits do git" git_email
+read -p "Digite um E-mail para configurar os commits do git ( o mesmo utilizado na sua conta)" git_email
 read -p "Digite o Nome que vai aparecer nos commits" git_name
 git config --global user.email $git_email
 git config --global user.name $git_name
 
 #INSTALACAO E CONFIGURACAO DO MYSQL
+echo "Instalando o Mysql server e criando um usuário"
 sudo apt install mysql-server -y
 sudo mysql_secure_installation
 sudo systemctl start mysql
@@ -91,8 +93,6 @@ cd ~/Downloads
 wget -O ~/Downloads/toolbox.tar.gz https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.15.5796.tar.gz
 mkdir ~/Downloads/Toolbox
 tar xvzf toolbox.tar.gz -C ~/Downloads/Toolbox
-#echo Para executar o Toolbox e baixar o PhpStorm basta acessar a pasta /Downloads/Toolbox/jetbrains-toolbox-1.15.5796 e rodar o arquivo que está dentro da mesma.
-#sleep 5
 cd ~/Downloads/Toolbox/jetbrains-toolbox-1.15.5796/
 ./jetbrains-toolbox
 
