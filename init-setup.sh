@@ -2,7 +2,7 @@
 
 #INSTALACAO E CONFIGURAÇÃO DO PHP E XDEBUG
 sudo add-apt-repository -y ppa:ondrej/php
-sudo apt update
+sudo apt update -y
 sudo apt install -y php7.2 php7.2-fpm php7.1 php7.1-fpm php7.0 php7.0-fpm php5.6 php5.6-fpm
 sudo apt install -y php7.2-curl php7.2-gd php7.2-json php7.2-mbstring
 sudo apt install -y php7.1-curl php7.1-gd php7.1-json php7.1-mbstring php7.1-mcrypt
@@ -40,13 +40,13 @@ sudo echo "xdebug.remote_port=9001" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
 sudo echo "xdebug.max_nesting_level=400" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
 sudo echo "xdebug.remote_host=127.0.0.1" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
 
-
-
 #INSTALACAO OUTROS PROGRAMAS
 sudo apt install -y nginx docker.io wget silversearcher-ag composer guake
 
 #INSTALACAO E CONFIGURACAO DO MYSQL
-sudo apt install mysql-server
+sudo apt install mysql-server -y
+sudo mysql_secure_installation
+sudo systemctl start mysql
 echo CRIANDO USUÁRIO DO MYSQL PARA CONEXÃO
 read -p "Nome do Usuário: " user
 read -p -s "Senha: " pass
@@ -65,8 +65,8 @@ sleep 3s;
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo apt-get update
-sudo apt-get install code
+sudo apt-get update -y
+sudo apt-get install code -y
 
 
 #CONFIGURAÇÃO DOCKER
