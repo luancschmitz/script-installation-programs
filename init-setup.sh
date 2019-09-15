@@ -63,7 +63,10 @@ tar xvzf toolbox.tar.gz -C ~/Downloads/Toolbox
 #sleep 5
 cd ~/Downloads/Toolbox/jetbrains-toolbox-1.15.5796/
 ./jetbrains-toolbox
-
+#INSTALAÇÃO CHROME
+cd ~/Downloads/
+wget -O chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i chrome.deb
 
 
 
