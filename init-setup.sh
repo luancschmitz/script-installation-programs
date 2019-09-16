@@ -102,3 +102,13 @@ cd ~/Downloads/Toolbox/jetbrains-toolbox-1.15.5796/
 cd ~/Downloads/
 wget -O chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i chrome.deb
+
+#INSTALAÇÃO N98 MAGERUN
+curl -O https://files.magerun.net/n98-magerun.phar
+chmod +x ./n98-magerun.phar
+sudo mv ./n98-magerun.phar /usr/local/bin/
+
+#ISNTALAÇÃO N98 MAGERUN2
+curl -O https://files.magerun.net/n98-magerun2.phar
+chmod +x ./n98-magerun2.phar
+sudo mv ./n98-magerun2.phar /usr/local/bin/
