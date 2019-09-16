@@ -59,16 +59,14 @@ sudo apt install mysql-server -y
 sudo mysql_secure_installation
 sudo systemctl start mysql
 echo "CRIANDO USUÁRIO DO MYSQL PARA CONEXÃO"
-read -p "Nome do Usuário: " user
-read -s -p "Senha: " pass
+read -p "User: " user
+read -s -p "Password: " pass
 sudo mysql << MY_QUERY
 CREATE USER '${user}'@'localhost' IDENTIFIED BY '${pass}';
 GRANT ALL PRIVILEGES ON *.* TO '${user}'@'localhost';
 FLUSH PRIVILEGES;
 MY_QUERY
-echo "Usuário criado. Informações de Acesso: "
-echo "User: $user"
-echo "Senha: $pass"
+echo "User Created. "
 sleep 3s;
 
 #INSTALACAO VSCODE
