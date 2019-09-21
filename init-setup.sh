@@ -1,6 +1,6 @@
-#!/bin/bash
+!/bin/bash
 
-#INSTALACAO E CONFIGURAÇÃO DO PHP E XDEBUG
+INSTALACAO E CONFIGURAÇÃO DO PHP E XDEBUG
 echo "Instalação PHP 5.6 7.0 7.1 E 7.2 com configuração do XDEBUG"
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update -y
@@ -83,10 +83,15 @@ sleep 1s
 
 #GERACAO CHAVE SSH
 echo "-----Geração da Chave SSH -----"
-ssh-keygen -t rsa -b 4096 -C "test@example.com" -N "" -f ~/.ssh/id_rsa
-cat ~/.ssh/id_rsa.pub
-echo "COPIE O CONTEÚDO E INSIRA NAS CONFIGURAÇÕES DE CHAVES SSH DO BITBUCKET [PRESSIONE QUALQUER TECLA PARA CONTINUAR]"
-read enter
+if [ ! -f "/home/$USER/.ssh/id_rsa" ]; then
+    ssh-keygen -t rsa -b 4096 -C "test@example.com" -N "" -f ~/.ssh/id_rsa
+    cat ~/.ssh/id_rsa.pub
+    echo "COPIE O CONTEÚDO E INSIRA NAS CONFIGURAÇÕES DE CHAVES SSH DO BITBUCKET [PRESSIONE QUALQUER TECLA PARA CONTINUAR]"
+    read enter
+else
+    echo "A chave ssh já existe"
+    echo "Ignorando essa etapa"
+fi
 
 #INSTALACAO JETBRAINS TOOLBOX
 cd ~/Downloads
@@ -108,7 +113,7 @@ curl -O https://files.magerun.net/n98-magerun.phar
 chmod +x ./n98-magerun.phar
 sudo mv ./n98-magerun.phar /usr/local/bin/
 
-#ISNTALAÇÃO N98 MAGERUN2
+# #ISNTALAÇÃO N98 MAGERUN2
 curl -O https://files.magerun.net/n98-magerun2.phar
 chmod +x ./n98-magerun2.phar
 sudo mv ./n98-magerun2.phar /usr/local/bin/
