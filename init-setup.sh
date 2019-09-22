@@ -1,6 +1,6 @@
-!/bin/bash
+#!/bin/bash
 
-INSTALACAO E CONFIGURAÇÃO DO PHP E XDEBUG
+#INSTALACAO E CONFIGURAÇÃO DO PHP E XDEBUG
 echo "Instalação PHP 5.6 7.0 7.1 E 7.2 com configuração do XDEBUG"
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update -y
@@ -46,7 +46,7 @@ echo "xdebug.remote_host=127.0.0.1" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
 SUDO_COMANDS
 
 #INSTALACAO OUTROS PROGRAMAS
-sudo apt install -y nginx docker.io docker-compose wget silversearcher-ag composer guake git curl
+sudo apt install -y nginx docker.io docker-compose wget silversearcher-ag composer guake git curl nano
 
 #CONFIGURANDO GIT
 read -p "Digite um E-mail para configurar os commits do git ( o mesmo utilizado na sua conta): " git_email
