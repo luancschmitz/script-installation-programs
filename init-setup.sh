@@ -85,7 +85,8 @@ sleep 1s
 #GERACAO CHAVE SSH
 echo "-----Geração da Chave SSH -----"
 if [ ! -f "/home/$USER/.ssh/id_rsa" ]; then
-    ssh-keygen -t rsa -b 4096 -C "test@example.com" -N "" -f ~/.ssh/id_rsa
+    read -p "Digite um E-mail para configurar a chave ssh: " ssh_email
+    ssh-keygen -t rsa -b 4096 -C "$ssh_email" -N "" -f ~/.ssh/id_rsa
     cat ~/.ssh/id_rsa.pub
     echo "COPIE O CONTEÚDO E INSIRA NAS CONFIGURAÇÕES DE CHAVES SSH DO BITBUCKET [PRESSIONE QUALQUER TECLA PARA CONTINUAR]"
     read enter
