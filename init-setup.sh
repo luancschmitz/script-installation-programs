@@ -119,3 +119,9 @@ sudo mv ./n98-magerun.phar /usr/local/bin/
 curl -O https://files.magerun.net/n98-magerun2.phar
 chmod +x ./n98-magerun2.phar
 sudo mv ./n98-magerun2.phar /usr/local/bin/
+
+#GERACAO CHAVES SSL
+cd /home/$USER
+mkdir .ssl
+cd .ssl
+openssl req -newkey rsa:2048 -nodes -keyout domain.key -x509 -days 365 -out domain.crt
