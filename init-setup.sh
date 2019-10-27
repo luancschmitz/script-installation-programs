@@ -5,10 +5,10 @@ echo "Instalação PHP 5.6 7.0 7.1 E 7.2 com configuração do XDEBUG"
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update -y
 sudo apt install -y php7.2 php7.2-fpm php7.1 php7.1-fpm php7.0 php7.0-fpm php5.6 php5.6-fpm
-sudo apt install -y php7.2-curl php7.2-gd php7.2-json php7.2-mbstring php7.2-bcmath php7.2-xml php7.2-zip php7.2-intl php7.2-soap php7.2-mysql php7.2-mysql
-sudo apt install -y php7.1-curl php7.1-gd php7.1-json php7.1-mbstring php7.1-mcrypt php7.1.bcmath php7.1-xml php7.1-zip php7.1-intl php7.1-soap php7.1-mysql
-sudo apt install -y php7.0-curl php7.0-gd php7.0-json php7.0-mbstring php7.0-mcrypt php7.0 bcmath php7.0-xml php7.0-zip php7.0-intl php7.0-soap php7.0-mysql
-sudo apt install -y php5.6-curl php5.6-gd php5.6-json php5.6-mbstring php5.6-mcrypt php5.6-bcmath php5.6-xml php5.6-zip php5.6-intl php5.6-soap php5.6-mysql
+sudo apt install -y php7.2-curl php7.2-gd php7.2-json php7.2-mbstring php7.2-bcmath php7.2-xml php7.2-zip php7.2-intl php7.2-soap php7.2-mysql
+sudo apt install -y php7.1-curl php7.1-gd php7.1-json php7.1-mbstring php7.2-bcmath php7.1-mcrypt php7.1-xml php7.1-zip php7.1-intl php7.1-soap php7.1-mysql
+sudo apt install -y php7.0-curl php7.0-gd php7.0-json php7.0-mbstring php7.0-bcmath php7.0-mcrypt php7.0-xml php7.0-zip php7.0-intl php7.0-soap php7.0-mysql
+sudo apt install -y php5.6-curl php5.6-gd php5.6-json php5.6-mbstring oho5.6-bcmath php5.6-mcrypt php5.6-xml php5.6-zip php5.6-intl php5.6-soap php5.6-mysql
 sudo apt install -y php-xdebug
 
 sudo su << SUDO_COMANDS
@@ -46,7 +46,31 @@ echo "xdebug.remote_host=127.0.0.1" >> /etc/php/5.6/fpm/conf.d/20-xdebug.ini
 SUDO_COMANDS
 
 #INSTALACAO OUTROS PROGRAMAS
-sudo apt install -y nginx docker.io docker-compose wget silversearcher-ag composer guake git curl nano
+sudo apt install -y nginx wget silversearcher-ag guake git curl nano apt-transport-https ca-certificates gnupg-agent software-properties-common
+
+#INSTALL DOCKER
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+cat /etc/os-release
+read -p "INFORME O NONE DO UBUNTU_CODENAME DO TEXTO ACIMA: " codename
+sudo su << SUDO_COMANDS
+echo "deb [arch=amd64] https://download.docker.com/linux/ubuntu ${codename} stable" >> /etc/apt/sources.list
+SUDO_COMANDS
+sudo apt update -y
+sudo apt install -y docker-ce docker-ce-cli containerd.io
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo systemctl enable docker
+
+#INSTALL DOCKER-COMPOSE
+sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
+sudo chmod +x /usr/bin/docker-compose
+
+#INSTALL COMPOSER
+cd /home/$USER
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === 'a5c698ffe4b8e849a443b120cd5ba38043260d5c4023dbf93e1558871f1f07f58274fc6f4c93bcfd858c6bd0775cd8d1') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php --install-dir=/usr/bin --filename=composer
+php -r "unlink('composer-setup.php');"
 
 #CONFIGURANDO GIT
 read -p "Digite um E-mail para configurar os commits do git ( o mesmo utilizado na sua conta): " git_email
@@ -76,11 +100,6 @@ curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microso
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo apt-get update -y
 sudo apt-get install code -y
-
-#CONFIGURAÇÃO DOCKER
-sudo usermod -aG docker $USER
-echo "É NECESSÁRIO REINICIAR A MÁUINA PARA TERMINAR A INSTALAÇÃO DO DOCKER"
-sleep 1s
 
 #GERACAO CHAVE SSH
 echo "-----Geração da Chave SSH -----"
