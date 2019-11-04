@@ -6,23 +6,34 @@
 4. Answer the questions when appers
 5. waiting finish the process
 
-
 #  LIST OF PROGRAMS WHAT WILL BE INSTALLED
 
 1. php 5.6 - 7.0 - 7.1 - 7.2 with fpm
-2. xdebug for all php alerdy configured
 3. nginx 
-4. docker.io 
-5. docker-compose 
-6. wget 
-7. silversearcher-ag 
-8. composer 
-9. guake terminal
-10. git 
-11. curl
-12. mysql-server
-13. vscode
-14. Generate SSH Key for use in bitbucket and ssh
-15. jetbrains toolbox
-16. Google Chrome
-17. N98 magerun and n98 magerun 2
+4. wget 
+5. silversearcher-ag 
+6. guake 
+7. git 
+8. curl 
+9. nano 
+10. apt-transport-https 
+11. ca-certificates 
+12. gnupg-agent 
+13. software-properties-common
+14. Docker
+15. Docker Compose
+16. Composer
+17.  hirak/prestissimo ( DOWNLOADS PACKAGES IN PARALLEL FOR COMPOSER)
+18. Mysql
+19. VSCODE
+20. Jetbrains Toolbox
+21. Chrome
+22. N98 magerun
+23. N98 Magerun2
+24. Magento Cloud CLi
+
+# OTHER CONFIGURATIONS
+
+1. Generation SSH keys
+2. Generation SSL keys
+3. Xdebug configuration for all installed php
