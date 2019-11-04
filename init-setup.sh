@@ -2,6 +2,7 @@
 
 #INSTALACAO E CONFIGURAÇÃO DO PHP E XDEBUG
 echo "Instalação PHP 5.6 7.0 7.1 E 7.2 com configuração do XDEBUG"
+sleep 2s;
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update -y
 sudo apt install -y php7.2 php7.2-fpm php7.1 php7.1-fpm php7.0 php7.0-fpm php5.6 php5.6-fpm
@@ -49,6 +50,8 @@ SUDO_COMANDS
 sudo apt install -y nginx wget silversearcher-ag guake git curl nano apt-transport-https ca-certificates gnupg-agent software-properties-common
 
 #INSTALL DOCKER
+echo "Installing Docker"
+sleep 2s;
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 cat /etc/os-release
 read -p "INFORME O NONE DO UBUNTU_CODENAME DO TEXTO ACIMA: " codename
@@ -62,10 +65,14 @@ sudo usermod -aG docker $USER
 sudo systemctl enable docker
 
 #INSTALL DOCKER-COMPOSE
+echo "Installing Docker Compose"
+sleep 2s
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
 sudo chmod +x /usr/bin/docker-compose
 
 #INSTALL COMPOSER
+echo "Installing Composer"
+sleep 2s;
 cd /home/$USER
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php -r "if (hash_file('sha384', 'composer-setup.php') === 'a5c698ffe4b8e849a443b120cd5ba38043260d5c4023dbf93e1558871f1f07f58274fc6f4c93bcfd858c6bd0775cd8d1') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
@@ -80,6 +87,7 @@ git config --global user.name "$git_name"
 
 #INSTALACAO E CONFIGURACAO DO MYSQL
 echo "Instalando o Mysql server e criando um usuário"
+sleep 2s
 sudo apt install mysql-server -y
 sudo mysql_secure_installation
 sudo systemctl start mysql
@@ -95,6 +103,8 @@ echo "User Created. "
 sleep 3s;
 
 #INSTALACAO VSCODE
+echo "Installing VSCODE"
+sleep 2s
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
@@ -103,6 +113,7 @@ sudo apt-get install code -y
 
 #GERACAO CHAVE SSH
 echo "-----Geração da Chave SSH -----"
+sleep 2s
 if [ ! -f "/home/$USER/.ssh/id_rsa" ]; then
     read -p "Digite um E-mail para configurar a chave ssh: " ssh_email
     ssh-keygen -t rsa -b 4096 -C "$ssh_email" -N "" -f ~/.ssh/id_rsa
@@ -115,6 +126,8 @@ else
 fi
 
 #INSTALACAO JETBRAINS TOOLBOX
+echo "Installing Jetbrains Toolbox"
+sleep 2s
 cd ~/Downloads
 wget -O ~/Downloads/toolbox.tar.gz https://download.jetbrains.com/toolbox/jetbrains-toolbox-1.15.5796.tar.gz
 mkdir ~/Downloads/Toolbox
@@ -124,23 +137,37 @@ cd ~/Downloads/Toolbox/jetbrains-toolbox-1.15.5796/
 ./jetbrains-toolbox
 
 #INSTALAÇÃO CHROME
+echo "Installing Chrome"
+sleep 2s
 cd ~/Downloads/
 wget -O chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i chrome.deb
 sudo rm -r ~/Downloads/chrome.deb
 
 #INSTALAÇÃO N98 MAGERUN
+echo "Installing n98 Magerun"
 curl -O https://files.magerun.net/n98-magerun.phar
 chmod +x ./n98-magerun.phar
 sudo mv ./n98-magerun.phar /usr/local/bin/
 
 # #ISNTALAÇÃO N98 MAGERUN2
+echo "Installing n98 magerun2"
+sleep 2s
 curl -O https://files.magerun.net/n98-magerun2.phar
 chmod +x ./n98-magerun2.phar
 sudo mv ./n98-magerun2.phar /usr/local/bin/
 
 #GERACAO CHAVES SSL
+echo "creating ssl keys"
+sleep 2s
 cd /home/$USER
 mkdir .ssl
 cd .ssl
 openssl req -newkey rsa:2048 -nodes -keyout domain.key -x509 -days 365 -out domain.crt
+
+#INSTALL MAGENTO CLOUD CLI
+echo "Installing Magento cloud cli"
+sleep 2s
+curl -sS https://accounts.magento.cloud/cli/installer | php
+source $HOME/.bashrc
+echo "Installation finish"
