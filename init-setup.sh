@@ -79,6 +79,9 @@ php -r "if (hash_file('sha384', 'composer-setup.php') === 'a5c698ffe4b8e849a443b
 sudo php composer-setup.php --install-dir=/usr/bin --filename=composer
 php -r "unlink('composer-setup.php');"
 
+#NNSTALL PRESTISSIMO DOWNLOADS PACKAGES IN PARALLEL
+composer global require hirak/prestissimo
+
 #CONFIGURANDO GIT
 read -p "Digite um E-mail para configurar os commits do git ( o mesmo utilizado na sua conta): " git_email
 read -p "Digite o Nome que vai aparecer nos commits: " git_name
