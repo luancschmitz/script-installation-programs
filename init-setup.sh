@@ -2,7 +2,7 @@
 
 #INSTALACAO E CONFIGURAÇÃO DO PHP E XDEBUG
 echo "Instalação PHP 5.6 7.0 7.1 E 7.2 com configuração do XDEBUG"
-sleep 2s;
+sleep 2s
 sudo add-apt-repository -y ppa:ondrej/php
 sudo apt update -y
 sudo apt install -y php7.2 php7.2-fpm php7.1 php7.1-fpm php7.0 php7.0-fpm php5.6 php5.6-fpm
@@ -51,7 +51,7 @@ sudo apt install -y nginx wget silversearcher-ag guake git curl nano apt-transpo
 
 #INSTALL DOCKER
 echo "Installing Docker"
-sleep 2s;
+sleep 2s
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 cat /etc/os-release
 read -p "INFORME O NONE DO UBUNTU_CODENAME DO TEXTO ACIMA: " codename
@@ -72,7 +72,7 @@ sudo chmod +x /usr/bin/docker-compose
 
 #INSTALL COMPOSER
 echo "Installing Composer"
-sleep 2s;
+sleep 2s
 cd /home/$USER
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php -r "if (hash_file('sha384', 'composer-setup.php') === 'a5c698ffe4b8e849a443b120cd5ba38043260d5c4023dbf93e1558871f1f07f58274fc6f4c93bcfd858c6bd0775cd8d1') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
@@ -146,6 +146,7 @@ sudo rm -r ~/Downloads/chrome.deb
 
 #INSTALAÇÃO N98 MAGERUN
 echo "Installing n98 Magerun"
+sleep 2s
 curl -O https://files.magerun.net/n98-magerun.phar
 chmod +x ./n98-magerun.phar
 sudo mv ./n98-magerun.phar /usr/local/bin/
