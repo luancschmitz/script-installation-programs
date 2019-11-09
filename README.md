@@ -1,4 +1,4 @@
-# Bash Script for Installation of the Programas for Devs
+# Bash Script to install development programs
 # USAGE
 1. Download this project
 2. run ``chmod +x init-setup.sh``
