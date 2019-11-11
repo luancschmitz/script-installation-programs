@@ -1,8 +1,7 @@
 # Bash Script to install development programs
 # USAGE
 1. Download this project
-2. run ``chmod +x init-setup.sh``
-3. run ``./init-setup.sh``
+2. run ``chmod +x init-setup.sh && ./init-setup.sh``
 4. Answer the questions when appers
 5. waiting finish the process
 
