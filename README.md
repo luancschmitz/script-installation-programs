@@ -29,7 +29,7 @@
 21. Chrome
 22. N98 magerun
 23. N98 Magerun2
-24. Magento Cloud CLi
+24. Magento Cloud CLI
 
 # OTHER CONFIGURATIONS
 
