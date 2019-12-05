@@ -136,7 +136,7 @@ fi
 echo "Installing Jetbrains Toolbox"
 sleep 2s
 cd ~/Downloads
-wget -O ~/Downloads/toolbox.tar.gz https://data.services.jetbrains.com/products/download?platform=linux&code=TBA
+wget -O ~/Downloads/toolbox.tar.gz "https://data.services.jetbrains.com/products/download?platform=linux&code=TBA"
 mkdir ~/Downloads/Toolbox
 tar xvzf toolbox.tar.gz -C ~/Downloads/Toolbox
 sudo rm -r ~/Downloads/toolbox.tar.gz
