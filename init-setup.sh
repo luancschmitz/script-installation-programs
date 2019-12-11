@@ -179,3 +179,12 @@ sleep 2s
 curl -sS https://accounts.magento.cloud/cli/installer | php
 source $HOME/.bashrc
 echo "Installation finish"
+
+#INSTALL YARM FRONT-END
+cd /home/$USER
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+sudo su << SUDO_COMANDS
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+SUDO_COMANDS
+sudo apt-get update
+sudo apt-get install yarn
