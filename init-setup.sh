@@ -112,11 +112,10 @@ sleep 3s;
 #INSTALACAO VSCODE
 echo "Installing VSCODE"
 sleep 2s
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo apt-get update -y
-sudo apt-get install code -y
+cd ~/Downloads/
+wget -O vscode.deb "https://go.microsoft.com/fwlink/?LinkID=760868"
+sudo dpkg -i vscode.deb
+sudo rm -r ~/Downloads/vscode.deb
 
 #GERACAO CHAVE SSH
 echo "-----Geração da Chave SSH -----"
