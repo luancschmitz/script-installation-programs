@@ -1,11 +1,12 @@
-# Bash Script to install development programs
-# USAGE
-1. Download this project
-2. run ``chmod +x init-setup.sh && ./init-setup.sh``
+# Skrypt oparty na Bash do instalacji oprogramowania
+# Jak używać?
+1. Pobierz projekt albo sklonuj "apt install git && git clone https://github.com/norbezpl/script-installation-programs.git"
+2. run ``chmod +x init-setup.sh && chmod -x init-setup2.sh && chmod -x init-setup-desktop.sh && chmod -x init-setup-server.sh && ./init-setup*.sh``
+(optional) ``mkdir /var/scripts && chmod -R -x /var/scripts``
 4. Answer the questions when appers
 5. waiting finish the process
 
-#  LIST OF PROGRAMS WHAT WILL BE INSTALLED
+#  Lista programów która zostanie zainstalowana przy użyciu "init-setup2.sh"
 
 1. php 5.6 - 7.0 - 7.1 - 7.2 with fpm
 3. nginx 
@@ -31,8 +32,12 @@
 23. N98 Magerun2
 24. Magento Cloud CLI
 
-# OTHER CONFIGURATIONS
+# Inne konfiguracje wchodzące w skład init-setup2.sh
 
 1. Generation SSH keys
 2. Generation SSL keys
 3. Xdebug configuration for all installed php
+
+#  Lista programów która zostanie zainstalowana przy użyciu "init-setup.sh"
+
+
